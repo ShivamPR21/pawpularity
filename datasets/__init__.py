@@ -16,5 +16,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
 from .pawpularity import PawpularityPreditction
+from .transforms import PawToTensor
 
-__all__ = ('PawpularityPreditction')
+__all__ = ('PawpularityPreditction', 'PawToTensor')
