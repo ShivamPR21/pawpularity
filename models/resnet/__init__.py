@@ -15,24 +15,16 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
-from typing import Any, Tuple
+from resnet import ResNet, ResnetDecoder, ResNetEncoder
 
-import numpy as np
-import torch
-import torchvision.transforms as transforms
-from PIL import Image
-from sklearn.feature_extraction import image
+from .modules import (
+    ResidualBlock,
+    ResNetBasicBlock,
+    ResNetBottleNeckBlock,
+    ResNetLayer,
+    ResNetResidualBlock,
+)
 
-
-class PawToTensor(object):
-    def __init__(self,
-                 image_size: Tuple[int, int] = None) -> None:
-        self.image_transform = transforms.ToTensor()
-        self.image_size = image_size
-
-    def __call__(self,
-                 pic: Image.Image) -> torch.Tensor:
-        if self.image_size is not None:
-            pic = pic.resize(self.image_size)
-
-        return self.image_transform(pic)
+__all__ = ('ResNet', 'ResnetDecoder', 'ResNetEncoder',
+           'ResidualBlock', 'ResNetBasicBlock', 'ResNetBottleNeckBlock',
+           'ResNetResidualBlock', 'ResNetLayer')
